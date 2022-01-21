@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
     const productData = await Product.findAll();
     res.status(200).json(productData);
   } catch (err) {
-    res.status(404).json('Could not retrieve products.')
-  }
+    res.status(500).json(err)
+  };
 });
 
 // get one product
@@ -22,9 +22,10 @@ router.get('/:id', (req, res) => {
     const productData = await Product.findByPk(req.params.id, {
       include: [{ model: Category }, { model: Tag, through: ProductTag, as: 'tagged_products' }]
     })
+    res.status(200).json(productData);
   } catch (err) {
-
-  }
+    res.status(500).json(err);
+  };
 });
 
 // create new product
@@ -37,6 +38,13 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
+  try {
+    const productData = await Product.create(req.body);
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(400).json(err);
+  };
+
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
