@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
       include: [{ model: Category }, { model: Tag, through: ProductTag, as: 'tagged_products' }]
     });
 
-    (!locationData)
+    (!productData)
     ? res.status(404).json({ message: 'No product found with this id.'})
     : res.status(200).json(productData);
   } catch (err) {
@@ -114,7 +114,7 @@ router.delete('/:id', (req, res) => {
       }
     });
 
-    (!locationData)
+    (!productData)
     ? res.status(404).json({ message: 'No product found with this id.'})
     : res.status(200).json(productData);
 
