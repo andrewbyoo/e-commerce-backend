@@ -22,14 +22,14 @@ router.get('/:id', (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product, through: ProductTag, as: 'product_tags' }]
-    })
+    });
 
-      (!tagData)
-    ? res.status(404).json({ message: 'No tag found with this id.'})
-    : res.status(200).json(tagData);
+    (!tagData)
+      ? res.status(404).json({ message: 'No tag found with this id.' })
+      : res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
-  }
+  };
 });
 
 router.post('/', (req, res) => {
@@ -52,11 +52,11 @@ router.put('/:id', (req, res) => {
     });
 
     (!tagData[0])
-    ? res.status(404).json({ message: 'No tag found with this id.' })
-    : res.status(200).json(tagData);
+      ? res.status(404).json({ message: 'No tag found with this id.' })
+      : res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
-  }
+  };
 });
 
 router.delete('/:id', (req, res) => {
@@ -69,8 +69,8 @@ router.delete('/:id', (req, res) => {
     });
 
     (!tagData)
-    ? res.status(404).json({ message: 'No tag found with this id.' })
-    : res.status(200).json(tagData);
+      ? res.status(404).json({ message: 'No tag found with this id.' })
+      : res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
   };
