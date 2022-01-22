@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
   // find all products
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }, { model: Tag, through: ProductTag, as: 'tagged_products'}]
+      include: [{ model: Category }, { model: Tag, through: ProductTag, as: 'tagged_products' }]
     });
     res.status(200).json(productData);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   };
 });
 
@@ -25,8 +25,8 @@ router.get('/:id', (req, res) => {
     });
 
     (!productData)
-    ? res.status(404).json({ message: 'No product found with this id.'})
-    : res.status(200).json(productData);
+      ? res.status(404).json({ message: 'No product found with this id.' })
+      : res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
   };
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
           };
         });
         return ProductTag.bulkCreate(productTagIdArr);
-      }
+      };
       // if no product tags, just respond
       res.status(200).json(product);
     })
@@ -108,12 +108,12 @@ router.delete('/:id', (req, res) => {
     });
 
     (!productData)
-    ? res.status(404).json({ message: 'No product found with this id.'})
-    : res.status(200).json(productData);
+      ? res.status(404).json({ message: 'No product found with this id.' })
+      : res.status(200).json(productData);
 
   } catch (err) {
     res.status(500).json(err);
-  }
+  };
 });
 
 module.exports = router;
