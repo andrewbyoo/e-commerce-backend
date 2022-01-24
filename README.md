@@ -17,14 +17,15 @@ As a manager at an internet retail company, I want a back end for my e-commerce 
 - [Questions](#questions)
 
 ## Installation
-To get the app on your local machine:
-Click on the code button on the repo.
-Copy the HTTPS or SSH link.
-Run the command `git clone` with the copied HTTPS or SSH link.
-In your local repo, open the .env file and fill in the fields with your mysql login information.
-In the terminal, run the command `npm i`, then run `mysql -u root -p`.
-After logging into MySQL, run the command `source db/schema.sql`, then run `quit`.
-If you would like seed data for testing, run the command `npm run seed`.
+- To get the app on your local machine:
+  1. Click on the code button on the repo.
+  2. Copy the HTTPS or SSH link.
+  3. Run the command `git clone` with the copied HTTPS or SSH link.
+- To get the app prepared to run:
+  1. In your local repo, open the `.env` file and fill in the fields with your mysql login information.
+  2. In the terminal, run the command `npm i`, then run `mysql -u root -p`.
+  3. After logging into MySQL, run the command `source db/schema.sql`, then run `quit`.
+- If you would like seed data for testing, run the command `npm run seed`.
 
 ## Usage
 The visual shows the app running on a local server and how request are made using Insomnia.
@@ -45,7 +46,9 @@ This application is covered under the MIT license.
 - Delete a category, product, or product tag from their respective lists
 
 ## Tests
-Not yet run
+As shown in the video demo, the command `npm start` was run to start the app.
+
+Once the server has started on a local server, GET, POST, PUT, and DELETE requests were input into Insomnia at the Category routes, Tag routes, and Product routes.
 
 ## Questions
 To view more of my projects, you can visit my GitHub page at [andrewbyoo](https://github.com/andrewbyoo).
