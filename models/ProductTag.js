@@ -14,6 +14,7 @@ ProductTag.init(
     },
     product_id: {
       type: DataTypes.INTEGER,
+      foreignKey: 'product_id',
       references: {
         model: 'product',
         key: 'id',
@@ -23,6 +24,7 @@ ProductTag.init(
     },
     tag_id: {
       type: DataTypes.INTEGER,
+      foreignKey: 'tag_id',
       references: {
         model: 'tag',
         key: 'id',
