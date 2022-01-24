@@ -29,9 +29,9 @@ If you would like seed data for testing, run the command `npm run seed`.
 ## Usage
 The visual shows the app running on a local server and how request are made using Insomnia.
 
-![]()
+![insomnia requests](./assets/e-commerce-backend-visual.gif)
 
-Please click [here]() for a video demo.
+Please click [here](https://youtu.be/GuUCvJOx9C4) for a video demo.
 
 ## License
 This application is covered under the MIT license.
